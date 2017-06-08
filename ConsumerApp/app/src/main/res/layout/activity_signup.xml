@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/activity_display_message"
+    tools:context="com.example.matthew.consumerapp.SignupActivity">
+
+    <EditText
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:hint="@string/edit_rut"
+        android:id="@+id/txtRut"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="@+id/txtPassword"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/txtPassword"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/txtPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="@+id/txtPasswordConfirm"
+        app:layout_constraintTop_toBottomOf="@+id/txtRut"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/txtPasswordConfirm" />
+
+    <EditText
+        android:id="@+id/txtPasswordConfirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        tools:layout_constraintTop_creator="1"
+        app:layout_constraintTop_toBottomOf="@+id/txtPassword"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/txtUserName" />
+
+    <EditText
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:hint="@string/userName"
+        android:id="@+id/txtUserName"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        android:layout_marginEnd="59dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtPasswordConfirm"
+        android:layout_marginRight="59dp" />
+
+    <EditText
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:hint="@string/firstName"
+        android:id="@+id/txtFirstName"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="@+id/txtLastName"
+        app:layout_constraintTop_toBottomOf="@+id/txtUserName"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/txtLastName" />
+
+    <EditText
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content" 
+        android:hint="@string/lasttName"
+        android:id="@+id/txtLastName"
+        tools:layout_constraintTop_creator="1"
+        app:layout_constraintTop_toBottomOf="@+id/txtFirstName"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/txtUserName" />
+
+    <EditText
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content" 
+        android:hint="@string/gender"
+        android:id="@+id/txtGender"
+        tools:layout_constraintTop_creator="1"
+        app:layout_constraintTop_toBottomOf="@+id/txtLastName"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/txtLastName" />
+
+    <EditText
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content" 
+        android:hint="@string/commune"
+        android:id="@+id/txtCommune"
+        tools:layout_constraintTop_creator="1"
+        app:layout_constraintTop_toBottomOf="@+id/txtGender"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/txtEmail" />
+
+    <EditText
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content" 
+        android:hint="@string/email"
+        android:id="@+id/txtEmail"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="@+id/txtPhone"
+        app:layout_constraintTop_toBottomOf="@+id/txtCommune"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toRightOf="@+id/txtPhone" />
+
+    <EditText
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content" 
+        android:hint="@string/phone"
+        android:id="@+id/txtPhone"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        android:layout_marginEnd="7dp"
+        app:layout_constraintRight_toRightOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/txtEmail"
+        android:layout_marginRight="7dp" />
+
+    <Button
+	android:layout_height="wrap_content"
+	android:layout_width="wrap_content"
+	android:text="@string/signup"
+	android:onClick="signup"
+        android:id="@+id/button"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+
+
+
+</android.support.constraint.ConstraintLayout>
