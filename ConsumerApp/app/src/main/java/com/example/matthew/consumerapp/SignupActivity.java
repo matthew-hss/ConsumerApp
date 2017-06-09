@@ -64,11 +64,11 @@ public class SignupActivity extends AppCompatActivity {
         Region region = new Region();
 
         if(etPassword.getText().toString().equalsIgnoreCase(etPasswordConfirm.getText().toString())){
-            user.setRut(Integer.parseInt(etRut.getText().toString()));
-            user.setPassword(etPassword.getText().toString());
-            user.setUsername(etUserName.getText().toString());
-            user.setFirstName(etFirstName.getText().toString());
-            user.setLastName(etLastName.getText().toString());
+//            user.setRut(Integer.parseInt(etRut.getText().toString()));
+//            user.setPassword(etPassword.getText().toString());
+//            user.setUsername(etUserName.getText().toString());
+//            user.setFirstName(etFirstName.getText().toString());
+//            user.setLastName(etLastName.getText().toString());
         }
 
 

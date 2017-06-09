@@ -1,9 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.matthew.consumerapp.VoucherInfoActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <FrameLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <EditText
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtClient"
+            android:hint="Juan Morales"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="30dp"
+            />
+
+        <EditText
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtStatus"
+            android:hint="Vigente"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="70dp"/>
+
+        <EditText
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtEmited"
+            android:hint="01/06/2017"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="110dp"/>
+
+        <EditText
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtExpires"
+            android:hint="30/06/2017"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="150dp"/>
+
+        <EditText
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtEkoPesos"
+            android:hint="35.000"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="190dp"/>
+
+        <EditText
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtUsedDate"
+            android:hint=""
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="230dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cliente"
+            android:textSize="@dimen/text_size_standar"
+            android:layout_marginLeft="75dp"
+            android:layout_marginTop="40dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Estado"
+            android:textSize="@dimen/text_size_standar"
+            android:layout_marginLeft="75dp"
+            android:layout_marginTop="80dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Emisión"
+            android:textSize="@dimen/text_size_standar"
+            android:layout_marginLeft="75dp"
+            android:layout_marginTop="120dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vencimiento"
+            android:textSize="@dimen/text_size_standar"
+            android:layout_marginLeft="75dp"
+            android:layout_marginTop="160dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="EkoPesos"
+            android:textSize="@dimen/text_size_standar"
+            android:layout_marginLeft="75dp"
+            android:layout_marginTop="200dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fecha de uso"
+            android:textSize="@dimen/text_size_standar"
+            android:layout_marginLeft="75dp"
+            android:layout_marginTop="240dp"/>
+
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/button_consumeqr"
+            android:textColor="@drawable/button_text_color"
+            android:id="@+id/btnConsume"
+            android:layout_marginTop="300dp"
+            android:layout_marginLeft="140dp"
+            android:onClick="consumeQr"/>
+
+
+    </FrameLayout>
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="?android:attr/windowBackground"
+        app:menu="@menu/navigation" />
+
+</LinearLayout>

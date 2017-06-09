@@ -5,52 +5,24 @@ package model;
  */
 
 public class User {
-    private Long id = null;
-    private Integer rut = null;
-    private String password = "temporal";
-    private String username = null;
+    private String rut = null;
     private String firstName = null;
     private String lastName = null;
-    //private Gender gender = Gender.FEMALE;
-    private Commune commune = null;
+    private String gender = null;
+    private String commune = null;
     private String email = null;
     private Long phone = null;
     private Long ekopesos = null;
     private Long co2 = null;
     private Integer maxLimit = null;
-    private boolean completeProfile = false;
     private boolean active = false;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Integer getRut() {
+    public String getRut() {
         return rut;
     }
 
-    public void setRut(Integer rut) {
+    public void setRut(String rut) {
         this.rut = rut;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 
     public String getFirstName() {
@@ -69,11 +41,19 @@ public class User {
         this.lastName = lastName;
     }
 
-    public Commune getCommune() {
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getCommune() {
         return commune;
     }
 
-    public void setCommune(Commune commune) {
+    public void setCommune(String commune) {
         this.commune = commune;
     }
 
@@ -115,14 +95,6 @@ public class User {
 
     public void setMaxLimit(Integer maxLimit) {
         this.maxLimit = maxLimit;
-    }
-
-    public boolean isCompleteProfile() {
-        return completeProfile;
-    }
-
-    public void setCompleteProfile(boolean completeProfile) {
-        this.completeProfile = completeProfile;
     }
 
     public boolean isActive() {
