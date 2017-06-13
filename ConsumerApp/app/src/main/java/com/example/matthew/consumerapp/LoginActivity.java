@@ -16,15 +16,6 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
     }
 
-    public void signup(View view) {
-        Intent intent = new Intent(this, SignupActivity.class);
-        rut = (EditText) findViewById(R.id.txtRut);
-        password = (EditText) findViewById(R.id.txtPassword);
-        String message = "Rut: " + rut.getText().toString() + " \n Password: " + password.getText().toString();
-        intent.putExtra("EXTRA", message);
-        startActivity(intent);
-    }
-
     public void login(View view) {
         Intent intent = new Intent(this, IndexActivity.class);
         startActivity(intent);

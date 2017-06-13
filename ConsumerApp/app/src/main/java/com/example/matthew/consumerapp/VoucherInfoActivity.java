@@ -21,9 +21,12 @@ public class VoucherInfoActivity extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
+                case R.id.navigation_home:
+                    toHome();
+                    return true;
                 case R.id.navigation_reader:
                     toReadQR();
-                    //return true;
+                    return true;
             }
             return false;
         }
@@ -42,6 +45,7 @@ public class VoucherInfoActivity extends AppCompatActivity {
         String qrInfo = intent.getStringExtra("EXTRA");
         EditText etQR = (EditText) findViewById(R.id.txtUsedDate);
         etQR.setText(qrInfo);
+        consumeQr();
     }
 
     public void toReadQR() {
@@ -49,18 +53,27 @@ public class VoucherInfoActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void consumeQr(View view){
-        new AlertDialog.Builder(this)
-                .setMessage("¿Desea consumir su código QR?")
-                .setCancelable(false)
-                .setNegativeButton("No", null)
-                .setPositiveButton("Si", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        //VoucherInfoActivity.this.finish();
-                        EditText etQR = (EditText) findViewById(R.id.txtUsedDate);
-                        etQR.setText("consumido!");
-                    }
-                })
-                .show();
+    public void toHome() {
+        Intent intent = new Intent(this, IndexActivity.class);
+        startActivity(intent);
+    }
+
+    public void consumeQr(){
+//        new AlertDialog.Builder(this)
+//                .setMessage("¿Desea consumir su código QR?")
+//                .setCancelable(false)
+//                .setNegativeButton("No", null)
+//                .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+//                    public void onClick(DialogInterface dialog, int id) {
+//                        //VoucherInfoActivity.this.finish();
+//                        EditText etQR = (EditText) findViewById(R.id.txtUsedDate);
+//                        etQR.setText("consumido!");
+//                    }
+//                })
+//                .show();
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Código QR");
+        builder.setMessage("Código QR Consumido!");
+        builder.setPositiveButton("Ok", null).show();
     }
 }

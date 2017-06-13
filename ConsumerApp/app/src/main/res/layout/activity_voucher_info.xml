@@ -15,12 +15,13 @@
         android:layout_weight="1">
 
         <EditText
-            android:layout_width="150dp"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:id="@+id/txtClient"
             android:hint="Juan Morales"
+            android:textSize="23sp"
             android:layout_marginLeft="200dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="60dp"
             />
 
         <EditText
@@ -28,98 +29,105 @@
             android:layout_height="wrap_content"
             android:id="@+id/txtStatus"
             android:hint="Vigente"
+            android:textSize="23sp"
             android:layout_marginLeft="200dp"
-            android:layout_marginTop="70dp"/>
+            android:layout_marginTop="100dp"/>
 
         <EditText
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:id="@+id/txtEmited"
             android:hint="01/06/2017"
+            android:textSize="23sp"
             android:layout_marginLeft="200dp"
-            android:layout_marginTop="110dp"/>
+            android:layout_marginTop="140dp"/>
 
         <EditText
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:id="@+id/txtExpires"
             android:hint="30/06/2017"
+            android:textSize="23sp"
             android:layout_marginLeft="200dp"
-            android:layout_marginTop="150dp"/>
+            android:layout_marginTop="180dp"/>
 
         <EditText
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:id="@+id/txtEkoPesos"
             android:hint="35.000"
+            android:textSize="23sp"
             android:layout_marginLeft="200dp"
-            android:layout_marginTop="190dp"/>
+            android:layout_marginTop="220dp"/>
 
         <EditText
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:id="@+id/txtUsedDate"
             android:hint=""
+            android:textSize="23sp"
             android:layout_marginLeft="200dp"
-            android:layout_marginTop="230dp"/>
+            android:layout_marginTop="260dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cliente"
             android:textSize="@dimen/text_size_standar"
-            android:layout_marginLeft="75dp"
-            android:layout_marginTop="40dp"/>
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="70dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Estado"
             android:textSize="@dimen/text_size_standar"
-            android:layout_marginLeft="75dp"
-            android:layout_marginTop="80dp"/>
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="110dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Emisión"
             android:textSize="@dimen/text_size_standar"
-            android:layout_marginLeft="75dp"
-            android:layout_marginTop="120dp"/>
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="150dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Vencimiento"
             android:textSize="@dimen/text_size_standar"
-            android:layout_marginLeft="75dp"
-            android:layout_marginTop="160dp"/>
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="190dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="EkoPesos"
             android:textSize="@dimen/text_size_standar"
-            android:layout_marginLeft="75dp"
-            android:layout_marginTop="200dp"/>
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="230dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Fecha de uso"
             android:textSize="@dimen/text_size_standar"
-            android:layout_marginLeft="75dp"
-            android:layout_marginTop="240dp"/>
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="270dp"/>
 
-        <Button
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="@string/button_consumeqr"
-            android:textColor="@drawable/button_text_color"
-            android:id="@+id/btnConsume"
-            android:layout_marginTop="300dp"
-            android:layout_marginLeft="140dp"
-            android:onClick="consumeQr"/>
+        <!--<Button-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:text="@string/button_consumeqr"-->
+            <!--android:textColor="@drawable/button_text_color"-->
+            <!--android:id="@+id/btnConsume"-->
+            <!--android:layout_marginTop="300dp"-->
+            <!--android:layout_marginLeft="140dp"-->
+            <!--android:onClick="consumeQr"/>-->
+
+
 
 
     </FrameLayout>

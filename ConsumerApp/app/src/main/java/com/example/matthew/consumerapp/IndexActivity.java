@@ -15,9 +15,11 @@ public class IndexActivity extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
-//                case R.id.navigation_home:
+                case R.id.navigation_home:
 //                    mTextMessage.setText(R.string.title_home);
 //                    return true;
+                    toHome();
+                    return true;
 //                case R.id.navigation_dashboard:
 //                    mTextMessage.setText(R.string.title_dashboard);
 //                    return true;
@@ -27,6 +29,7 @@ public class IndexActivity extends AppCompatActivity {
 //                    return true;
                 case R.id.navigation_reader:
                     toReadQR();
+                    return true;
             }
             return false;
         }
@@ -44,6 +47,11 @@ public class IndexActivity extends AppCompatActivity {
 
     public void toReadQR() {
         Intent intent = new Intent(this, CamActivity.class);
+        startActivity(intent);
+    }
+
+    public void toHome() {
+        Intent intent = new Intent(this, IndexActivity.class);
         startActivity(intent);
     }
 }
