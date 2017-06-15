@@ -27,6 +27,12 @@
             tools:layout_constraintTop_creator="1"
             android:layout_marginLeft="31dp" />
 
+        <ListView
+            android:id="@+id/lvLista"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
     </FrameLayout>
 
     <android.support.design.widget.BottomNavigationView
