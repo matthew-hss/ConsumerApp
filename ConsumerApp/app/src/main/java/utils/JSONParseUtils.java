@@ -18,12 +18,12 @@ import model.User;
 public class JSONParseUtils {
 
     public List<User> findAllUsers() {
-        JSONObject serviceResult = WebServiceUtils.requestWebService("URL TO FIND");
+        JSONObject serviceResult = WebServiceUtils.requestWebService("https://modena.sportcars.cl/commerce/api/v1/users");
 
-        List<User> foundItems = new ArrayList<>(20);
+        List<User> foundItems = new ArrayList<>();
 
         try {
-            JSONArray items = serviceResult.getJSONArray("items");
+            JSONArray items = serviceResult.getJSONArray("");
 
             for (int i = 0; i < items.length(); i++) {
                 JSONObject obj = items.getJSONObject(i);
@@ -51,7 +51,7 @@ public class JSONParseUtils {
     }
 
     public User findUsers() {
-        JSONObject serviceResult = WebServiceUtils.requestWebService("URL TO FIND");
+        JSONObject serviceResult = WebServiceUtils.requestWebService("https://modena.sportcars.cl/commerce/api/v1/users");
 
         User foundItem;
 
@@ -82,7 +82,7 @@ public class JSONParseUtils {
     }
 
     public List<String> findCountries(){
-        List<String> list = new ArrayList<>(20);
+        List<String> list = new ArrayList<>();
 
         try {
             JSONObject serviceResult = WebServiceUtils.requestWebService("http://services.groupkt.com/country/get/all");

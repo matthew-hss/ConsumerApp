@@ -1,5 +1,6 @@
 package com.example.matthew.consumerapp;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -7,12 +8,20 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.io.BufferedOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.ProtocolException;
+import java.net.URL;
 import java.util.List;
 
+import model.User;
 import utils.JSONParseUtils;
 
 public class IndexActivity extends AppCompatActivity {
@@ -24,17 +33,8 @@ public class IndexActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-//                    mTextMessage.setText(R.string.title_home);
-//                    return true;
                     toHome();
                     return true;
-//                case R.id.navigation_dashboard:
-//                    mTextMessage.setText(R.string.title_dashboard);
-//                    return true;
-//                case R.id.navigation_notifications:
-//                    mTextMessage.setText(R.string.title_notifications);
-//                    readQR();
-//                    return true;
                 case R.id.navigation_reader:
                     toReadQR();
                     return true;
@@ -53,19 +53,6 @@ public class IndexActivity extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         new RequestItemsServiceTask().execute();
-//        if (android.os.Build.VERSION.SDK_INT > 9) {
-//            StrictMode.ThreadPolicy policy =
-//                    new StrictMode.ThreadPolicy.Builder().permitAll().build();
-//            StrictMode.setThreadPolicy(policy);
-//        }
-//
-//        ListView lv = (ListView) findViewById(R.id.lvLista);
-//
-//        List<String> countries = new JSONParseUtils().findCountries();
-//
-//        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, countries);
-//
-//        lv.setAdapter(arrayAdapter);
     }
 
     public void toReadQR() {
@@ -80,9 +67,9 @@ public class IndexActivity extends AppCompatActivity {
 
     private class RequestItemsServiceTask
             extends AsyncTask<Void, Void, Void> {
-        private ProgressDialog dialog =
-                new ProgressDialog(IndexActivity.this);
+        private ProgressDialog dialog = new ProgressDialog(IndexActivity.this);
         private List<String> itemsList;
+        private List<User> userList;
 
         @Override
         protected void onPreExecute() {
@@ -95,7 +82,12 @@ public class IndexActivity extends AppCompatActivity {
         protected Void doInBackground(Void... unused) {
             JSONParseUtils itemService = new JSONParseUtils();
             try {
-                itemsList = itemService.findCountries();
+                userList = itemService.findAllUsers();
+                if (!userList.isEmpty()) {
+                    for (User user : userList) {
+                        itemsList.add(user.getFirstName() + " " + user.getLastName() + " " + user.getRut());
+                    }
+                }
             } catch (Throwable e) {
                 // handle exceptions
             }
