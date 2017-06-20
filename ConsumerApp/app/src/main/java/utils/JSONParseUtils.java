@@ -18,15 +18,15 @@ import model.User;
 public class JSONParseUtils {
 
     public List<User> findAllUsers() {
-        JSONObject serviceResult = WebServiceUtils.requestWebService("https://modena.sportcars.cl/commerce/api/v1/users");
 
-        List<User> foundItems = new ArrayList<>();
+        List<User> users = new ArrayList<>();
 
         try {
-            JSONArray items = serviceResult.getJSONArray("");
 
-            for (int i = 0; i < items.length(); i++) {
-                JSONObject obj = items.getJSONObject(i);
+            JSONArray json = (JSONArray)WebServiceUtils.requestWebService("https://modena.sportcars.cl/commerce/api/v1/users");
+
+            for (int i = 0; i < json.length(); i++) {
+                JSONObject obj = json.getJSONObject(i);
                 User user = new User();
                 user.setRut(obj.getString("rut"));
                 user.setFirstName(obj.getString("firstName"));
@@ -39,19 +39,20 @@ public class JSONParseUtils {
                 user.setCo2(obj.getLong("co2"));
                 user.setMaxLimit(obj.getInt("maxLimit"));
                 user.setActive(obj.getBoolean("active"));
-                foundItems.add(user);
+                users.add(user);
             }
 
         } catch (JSONException e) {
             // handle exception
-            Log.e("Parsing JSON", "Error", e);
+            Log.e("Parsing JSONArray", "Error", e);
         }
 
-        return foundItems;
+        return users;
     }
 
     public User findUsers() {
-        JSONObject serviceResult = WebServiceUtils.requestWebService("https://modena.sportcars.cl/commerce/api/v1/users");
+//        JSONObject serviceResult = WebServiceUtils.requestWebService("https://modena.sportcars.cl/commerce/api/v1/users");
+        JSONObject serviceResult = (JSONObject) WebServiceUtils.requestWebService("https://modena.sportcars.cl/commerce/api/v1/users");
 
         User foundItem;
 
@@ -81,11 +82,11 @@ public class JSONParseUtils {
         return foundItem;
     }
 
-    public List<String> findCountries(){
+    public List<String> findCountries() {
         List<String> list = new ArrayList<>();
 
         try {
-            JSONObject serviceResult = WebServiceUtils.requestWebService("http://services.groupkt.com/country/get/all");
+            JSONObject serviceResult = (JSONObject) WebServiceUtils.requestWebService("http://services.groupkt.com/country/get/all");
             String RestResponse = serviceResult.getString("RestResponse");
             JSONObject serviceResult2 = new JSONObject(RestResponse);
             JSONArray items = serviceResult2.getJSONArray("result");

@@ -1,6 +1,5 @@
 package com.example.matthew.consumerapp;
 
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -13,12 +12,7 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import java.io.BufferedOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.ProtocolException;
-import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 import model.User;
@@ -52,6 +46,8 @@ public class IndexActivity extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
+//        new Authenticate().execute();
+
         new RequestItemsServiceTask().execute();
     }
 
@@ -68,7 +64,7 @@ public class IndexActivity extends AppCompatActivity {
     private class RequestItemsServiceTask
             extends AsyncTask<Void, Void, Void> {
         private ProgressDialog dialog = new ProgressDialog(IndexActivity.this);
-        private List<String> itemsList;
+        private List<String> itemsList = new ArrayList<>();
         private List<User> userList;
 
         @Override
@@ -88,8 +84,8 @@ public class IndexActivity extends AppCompatActivity {
                         itemsList.add(user.getFirstName() + " " + user.getLastName() + " " + user.getRut());
                     }
                 }
-            } catch (Throwable e) {
-                // handle exceptions
+            } catch (Exception e) {
+                Log.e("Getting users", "Error", e);
             }
             return null;
         }
@@ -111,4 +107,5 @@ public class IndexActivity extends AppCompatActivity {
             }
         }
     }
+
 }

@@ -1,21 +1,17 @@
 package com.example.matthew.consumerapp;
 
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
-import java.io.BufferedOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.ProtocolException;
-import java.net.URL;
+import java.net.CookieHandler;
+import java.net.CookieManager;
+
+import utils.WebServiceUtils;
 
 public class LoginActivity extends AppCompatActivity {
     EditText etRut = null;
@@ -28,6 +24,9 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        CookieManager cookieManager = new CookieManager();
+        CookieHandler.setDefault(cookieManager);
     }
 
     public void login(View view) {
@@ -36,47 +35,16 @@ public class LoginActivity extends AppCompatActivity {
         rut = etRut.getText().toString();
         password = etPassword.getText().toString();
 
-        ToPost test = new ToPost();
-        test.execute();
+        new Authenticate().execute();
     }
 
 
-    private class ToPost
+    private class Authenticate
             extends AsyncTask<Void, Void, Void> {
-//        private ProgressDialog dialog = new ProgressDialog(LoginActivity.this);
-//
-//        @Override
-//        protected void onPreExecute() {
-//            // TODO i18n
-//            dialog.setMessage("Por favor espere...");
-//            dialog.show();
-//        }
 
         @Override
         protected Void doInBackground(Void... unused) {
-            HttpURLConnection conn = null;
-            try {
-                URL url = new URL("https://modena.sportcars.cl/commerce/login");
-                conn = (HttpURLConnection) url.openConnection();
-                conn.setReadTimeout(10000);
-                conn.setConnectTimeout(15000);
-                conn.setRequestMethod("POST");
-                conn.setDoInput(true);
-                conn.setDoOutput(true);
-                String body = "username=" + rut + "&password=" + password;
-                OutputStream output = new BufferedOutputStream(conn.getOutputStream());
-                output.write(body.getBytes());
-                output.flush();
-
-                code = conn.getResponseCode();
-
-            } catch (ProtocolException e) {
-                Log.e("Protocolo", "Error", e);
-            } catch (IOException e) {
-                Log.e("IO", "Error", e);
-            } finally {
-                conn.disconnect();
-            }
+            code = WebServiceUtils.authenticate(rut, password);
             return null;
         }
 
