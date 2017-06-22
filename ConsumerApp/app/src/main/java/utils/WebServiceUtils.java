@@ -1,7 +1,11 @@
 package utils;
 
+import android.content.Context;
+import android.content.res.AssetManager;
 import android.os.Build;
 import android.util.Log;
+
+import com.example.matthew.consumerapp.MyApp;
 
 import org.json.JSONException;
 import org.json.JSONTokener;
@@ -16,6 +20,7 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.SocketTimeoutException;
 import java.net.URL;
+import java.util.Properties;
 import java.util.Scanner;
 
 /**
@@ -23,6 +28,15 @@ import java.util.Scanner;
  */
 
 public class WebServiceUtils {
+
+
+    public static String getProperty(String key) throws IOException {
+        Properties properties = new Properties();;
+        AssetManager assetManager = MyApp.getContext().getAssets();
+        InputStream inputStream = assetManager.open("config.properties");
+        properties.load(inputStream);
+        return properties.getProperty(key);
+    }
 
     public static Object requestWebService(String serviceUrl) {
         disableConnectionReuseIfNecessary();
@@ -86,7 +100,8 @@ public class WebServiceUtils {
         HttpURLConnection urlConnection = null;
         int code = 404;
         try {
-            URL urlToRequest = new URL("https://modena.sportcars.cl/commerce/login");
+//            URL urlToRequest = new URL("https://modena.sportcars.cl/commerce/login");
+            URL urlToRequest = new URL(getProperty("domain")+getProperty("loginRest"));
             urlConnection = (HttpURLConnection) urlToRequest.openConnection();
             urlConnection.setReadTimeout(10000);
             urlConnection.setConnectTimeout(15000);

@@ -2,10 +2,13 @@ package utils;
 
 import android.util.Log;
 
+import com.example.matthew.consumerapp.MyApp;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,8 +25,8 @@ public class JSONParseUtils {
         List<User> users = new ArrayList<>();
 
         try {
-
-            JSONArray json = (JSONArray)WebServiceUtils.requestWebService("https://modena.sportcars.cl/commerce/api/v1/users");
+            String url = WebServiceUtils.getProperty("domain")+WebServiceUtils.getProperty("getUsersRest");
+            JSONArray json = (JSONArray)WebServiceUtils.requestWebService(url);
 
             for (int i = 0; i < json.length(); i++) {
                 JSONObject obj = json.getJSONObject(i);
@@ -44,6 +47,8 @@ public class JSONParseUtils {
 
         } catch (JSONException e) {
             Log.e("Parsing JSONArray", "Error", e);
+        } catch (IOException e) {
+            Log.e("IO", "Error", e);
         }
 
         return users;
