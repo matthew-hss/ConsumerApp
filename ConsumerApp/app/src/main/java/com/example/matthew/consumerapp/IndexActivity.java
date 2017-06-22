@@ -46,8 +46,6 @@ public class IndexActivity extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-//        new Authenticate().execute();
-
         new RequestItemsServiceTask().execute();
     }
 

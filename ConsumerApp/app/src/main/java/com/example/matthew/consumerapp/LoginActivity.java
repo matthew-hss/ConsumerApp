@@ -25,6 +25,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        //Manejará las coockies en adelante, se inicializa una vez durante la app
+        // ya que al inicializarlo en cada conexión se perderán las cookies anetiormente almacenadas.
         CookieManager cookieManager = new CookieManager();
         CookieHandler.setDefault(cookieManager);
     }

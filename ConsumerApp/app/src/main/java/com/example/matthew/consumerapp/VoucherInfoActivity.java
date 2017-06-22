@@ -1,19 +1,15 @@
 package com.example.matthew.consumerapp;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.EditText;
 
 public class VoucherInfoActivity extends AppCompatActivity {
-
-    IndexActivity ia = null;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -58,19 +54,7 @@ public class VoucherInfoActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void consumeQr(){
-//        new AlertDialog.Builder(this)
-//                .setMessage("¿Desea consumir su código QR?")
-//                .setCancelable(false)
-//                .setNegativeButton("No", null)
-//                .setPositiveButton("Si", new DialogInterface.OnClickListener() {
-//                    public void onClick(DialogInterface dialog, int id) {
-//                        //VoucherInfoActivity.this.finish();
-//                        EditText etQR = (EditText) findViewById(R.id.txtUsedDate);
-//                        etQR.setText("consumido!");
-//                    }
-//                })
-//                .show();
+    public void consumeQr() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Código QR");
         builder.setMessage("Código QR Consumido!");

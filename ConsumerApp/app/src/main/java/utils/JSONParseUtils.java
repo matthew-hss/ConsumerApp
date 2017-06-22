@@ -43,7 +43,6 @@ public class JSONParseUtils {
             }
 
         } catch (JSONException e) {
-            // handle exception
             Log.e("Parsing JSONArray", "Error", e);
         }
 
@@ -51,7 +50,6 @@ public class JSONParseUtils {
     }
 
     public User findUsers() {
-//        JSONObject serviceResult = WebServiceUtils.requestWebService("https://modena.sportcars.cl/commerce/api/v1/users");
         JSONObject serviceResult = (JSONObject) WebServiceUtils.requestWebService("https://modena.sportcars.cl/commerce/api/v1/users");
 
         User foundItem;
@@ -74,7 +72,6 @@ public class JSONParseUtils {
 
 
         } catch (JSONException e) {
-            // handle exception
             foundItem = null;
             Log.e("Parsing JSON", "Error", e);
         }
@@ -82,6 +79,7 @@ public class JSONParseUtils {
         return foundItem;
     }
 
+    //REST público utilizado para testing mientras se desarrollan los correspondientes a la aplicación real.
     public List<String> findCountries() {
         List<String> list = new ArrayList<>();
 
