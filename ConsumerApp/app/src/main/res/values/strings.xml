@@ -1,9 +1,11 @@
 <resources>
-    <string name="app_name">ConsumerApp</string>
+    <string name="app_name">ViveEko Consumidor</string>
     <string name="edit_rut">Ingrese su rut</string>
     <string name="edit_password">Ingrese su contraseña</string>
     <string name="login">Ingresar</string>
     <string name="signup">Registrarse</string>
+    <string name="company">Empresa</string>
+    <string name="preferences">Preferencias</string>
 
     <string name="password">Contraseña</string>
     <string name="userName">Nombre de usuario</string>
@@ -30,9 +32,9 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
-    <string name="title_activity_index">IndexActivity</string>
+    <string name="title_activity_index">Inicio</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
-    <string name="title_activity_voucher_info">VoucherInfoActivity</string>
+    <string name="title_notifications">Notificaciones</string>
+    <string name="title_activity_voucher_info">Información de ticket</string>
 </resources>

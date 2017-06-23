@@ -8,6 +8,8 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -17,6 +19,7 @@ import java.util.List;
 
 import model.User;
 import utils.JSONParseUtils;
+import utils.PreferenceUtils;
 
 public class IndexActivity extends AppCompatActivity {
 
@@ -47,6 +50,30 @@ public class IndexActivity extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         new RequestItemsServiceTask().execute();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        switch(item.getItemId())
+        {
+            case R.id.preferences:
+            {
+                Intent intent = new Intent(this, PreferenceActivity.class);
+                startActivity(intent);
+                return true;
+            }
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     public void toReadQR() {
@@ -81,6 +108,7 @@ public class IndexActivity extends AppCompatActivity {
                     for (User user : userList) {
                         itemsList.add(user.getFirstName() + " " + user.getLastName() + " " + user.getRut());
                     }
+                    itemsList.add(PreferenceUtils.getPref("companyRut"));
                 }
             } catch (Exception e) {
                 Log.e("Getting users", "Error", e);

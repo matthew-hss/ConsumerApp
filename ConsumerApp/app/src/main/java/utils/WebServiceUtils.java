@@ -1,6 +1,5 @@
 package utils;
 
-import android.content.Context;
 import android.content.res.AssetManager;
 import android.os.Build;
 import android.util.Log;
